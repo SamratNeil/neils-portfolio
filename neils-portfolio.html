@@ -1,0 +1,667 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2685.6">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
+  </style>
+</head>
+<body>
+<p class="p1">import React, { useState } from 'react';</p>
+<p class="p1">import {<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">  </span>Briefcase, Shield, TrendingUp, Calculator, Table as TableIcon,<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">  </span>BarChart3, PieChart, Target, Eye, ZoomIn, Layers, LineChart,</p>
+<p class="p1"><span class="Apple-converted-space">  </span>RefreshCw, CheckCircle, Crosshair, AlertTriangle, FileText,<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">  </span>Settings, User, ChevronRight, Menu, X, Search</p>
+<p class="p1">} from 'lucide-react';</p>
+<p class="p2"><br></p>
+<p class="p1">// Document Data parsed from the provided markdown</p>
+<p class="p1">const portfolioData = [</p>
+<p class="p1"><span class="Apple-converted-space">  </span>{</p>
+<p class="p1"><span class="Apple-converted-space">    </span>id: 'business-model',</p>
+<p class="p1"><span class="Apple-converted-space">    </span>title: 'Business Model',</p>
+<p class="p1"><span class="Apple-converted-space">    </span>icon: Briefcase,</p>
+<p class="p1"><span class="Apple-converted-space">    </span>content: (</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div className="space-y-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p&gt;The ontological foundation of any corporate entity resides in its business model, which dictates the precise operational mechanisms utilized to extract, deliver, and monetize value. A comprehensive understanding of how companies generate revenue is the prerequisite to intelligent capital allocation. Fundamentally, an enterprise architects its operations around several core prototypes. A product-based model relies on the transaction of tangible assets, whereas a service-based model monetizes human capital or operational assistance. The modern commercial landscape has popularized shared asset frameworks, where resources are utilized sequentially by multiple consumers, as well as subscription models that generate highly predictable, recurring cash flows through continuous access to designated benefits. Furthermore, structural models such as leasing, insurance risk-transfer, and multi-party brokerage introduce complex layers of financial mediation and revenue generation.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p&gt;A robust business model can be analytically dissected into specific components, beginning with the value proposition, which defines the unique competitive offering that distinguishes the firm from its industry peers. Following this, the revenue stream highlights the specific transactional methodology, whether the firm earns income through transaction-based one-off sales, subscription-based recurring billing, pay-per-use consumption metrics, or market arbitrage. The interplay between these revenue streams and the firm's cost structures directly dictates its financial survivability.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p&gt;Innovative enterprises often deploy secondary, non-linear business model patterns to supercharge their primary operations. The "Add-on" pattern prices core offerings highly competitively while extracting exorbitant margins from subsequent auxiliary features. Similarly, the "Affiliation" model leverages third-party networks for lead generation. Additional structures like the "Aikido" model, or the "Auction" model demonstrate the immense variability in value capture. Identifying the structural nuances of these models allows the analyst to gauge whether a company possesses the operational leverage required to scale profitably across economic cycles.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>)</p>
+<p class="p1"><span class="Apple-converted-space">  </span>},</p>
+<p class="p1"><span class="Apple-converted-space">  </span>{</p>
+<p class="p1"><span class="Apple-converted-space">    </span>id: 'moat',</p>
+<p class="p1"><span class="Apple-converted-space">    </span>title: 'Moat',</p>
+<p class="p1"><span class="Apple-converted-space">    </span>icon: Shield,</p>
+<p class="p1"><span class="Apple-converted-space">    </span>content: (</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div className="space-y-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p&gt;While a highly profitable business model initiates value creation, an economic moat ensures its long-term preservation. The concept of the economic moat, popularized by legendary capital allocators, refers to a firm's structural defense against competitive encroachment, enabling the generation of excess returns on invested capital over an extended, multi-decade duration. Analytical frameworks categorize these sustainable competitive advantages into five distinct sources: intangible assets, switching costs, network effects, cost advantages, and efficient scale.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p&gt;Intangible assets represent the most prevalent source of economic moats, encompassing patents, regulatory government licenses, and brand identity, which collectively erect insurmountable barriers to competitive entry. Switching costs form the second pillar, representing the financial, operational, or psychological expenses incurred by a consumer when migrating from one provider to another.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p&gt;Network effects materialize when the utility of a product or service increases exponentially for both new and existing users as more participants join the ecosystem. Conversely, firms possessing a cost advantage can produce goods or deliver services at structurally lower costs than rivals. Finally, efficient scale applies to niche markets capable of supporting only one or a few participants.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p&gt;The durability of these advantages determines the moat's quantitative rating: Wide Moat (20+ years), Narrow Moat (10+ years), and No Moat (rapidly dissipating returns). Because moat sources can erode or increase over time, continuous monitoring is required, and wide-moat equities should function as the foundational starting point for identifying core portfolio holdings.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>)</p>
+<p class="p1"><span class="Apple-converted-space">  </span>},</p>
+<p class="p1"><span class="Apple-converted-space">  </span>{</p>
+<p class="p1"><span class="Apple-converted-space">    </span>id: 'valuation-intro',</p>
+<p class="p1"><span class="Apple-converted-space">    </span>title: 'Valuation Intro',</p>
+<p class="p1"><span class="Apple-converted-space">    </span>icon: Calculator,</p>
+<p class="p1"><span class="Apple-converted-space">    </span>content: (</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div className="space-y-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p&gt;Identifying a high-quality enterprise with a wide economic moat addresses only half of the investment equation; the subsequent requirement is acquiring that asset at a rational price. Valuation bridges the gap between qualitative business analysis and quantitative capital allocation. The central tenet of intelligent equity investment is the concept of intrinsic value, which serves as the fundamental anchor amidst the chaotic fluctuations of the stock market. Intrinsic value is the estimated true worth of an asset based on its underlying fundamentals, primarily its ability to generate free cash flows over its remaining corporate lifespan.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p&gt;The necessity of valuation arises from the reality that financial markets are profoundly imperfect. Market prices are driven by near-term sentiment, fluctuating macroeconomic variables, and the collective behavioral biases of millions of participants, often causing the quoted market price to diverge significantly from the asset's true intrinsic value. The valuation process attempts to strip away this external market noise, focusing solely on the economic engine of the business itself. By relying on robust valuation methodologies, investors can objectively answer whether the current market capitalization of an enterprise is justified by its fundamental financial health, thereby avoiding the permanent impairment of capital that inevitably follows the purchase of severely overvalued assets.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>)</p>
+<p class="p1"><span class="Apple-converted-space">  </span>},</p>
+<p class="p1"><span class="Apple-converted-space">  </span>{</p>
+<p class="p1"><span class="Apple-converted-space">    </span>id: 'margin-of-safety',</p>
+<p class="p1"><span class="Apple-converted-space">    </span>title: 'Margin of Safety',</p>
+<p class="p1"><span class="Apple-converted-space">    </span>icon: AlertTriangle,</p>
+<p class="p1"><span class="Apple-converted-space">    </span>content: (</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div className="space-y-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p&gt;Because estimating future cash flows inherently involves forecasting errors, shifting macroeconomic conditions, and unforeseen idiosyncratic risks, investors must demand a rigorous "Margin of Safety" prior to deploying capital. The margin of safety serves as a mathematical risk buffer, representing the quantitative discount between an asset's calculated intrinsic value and its prevailing market price. It operates on the fundamental premise that an investor should never pay full price for an inherently uncertain future, thereby acknowledging unpredictability instead of ignoring it.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p&gt;The margin of safety is formally calculated by subtracting the market price from the intrinsic value, and dividing the result by the intrinsic value, yielding a percentage. Alternatively, it can be viewed dynamically as a function of &lt;code&gt;1 - (Current Stock Price / Intrinsic Stock Price)&lt;/code&gt;. If an equity is appraised at an intrinsic value of $10 and is currently trading at $8 in the open market, the margin of safety is 20%. This 20% discount acts as a structural cushion.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p&gt;Institutional value investors typically mandate a substantial margin of safety ranging from 20% to 30%, depending on the cyclicality and cash flow predictability of the underlying business model. Ultimately, the margin of safety reduces downside risk while simultaneously amplifying upside potential as the market price eventually converges with the true intrinsic value.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>)</p>
+<p class="p1"><span class="Apple-converted-space">  </span>},</p>
+<p class="p1"><span class="Apple-converted-space">  </span>{</p>
+<p class="p1"><span class="Apple-converted-space">    </span>id: 'excel-setup',</p>
+<p class="p1"><span class="Apple-converted-space">    </span>title: 'Excel Setup',</p>
+<p class="p1"><span class="Apple-converted-space">    </span>icon: TableIcon,</p>
+<p class="p1"><span class="Apple-converted-space">    </span>content: (</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div className="space-y-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p&gt;The professional implementation of valuation and portfolio tracking requires the creation of a live, systematized dashboard, entirely removing emotional friction and ensuring absolute analytical objectivity. Constructing an investment tracking sheet in spreadsheet software such as Microsoft Excel or Google Sheets allows the investor to consolidate diverse financial instruments into a unified command center.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p&gt;The structural setup begins by establishing a robust data retrieval mechanism to ensure the portfolio reflects real-time market realities. In Google Sheets, this is achieved by deploying the &lt;code&gt;=GOOGLEFINANCE&lt;/code&gt; function, which automatically updates the spreadsheet with the latest trading prices. For Microsoft 365, the "Stocks" linked data type or the &lt;code&gt;=STOCKHISTORY&lt;/code&gt; function serves an identical purpose.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p&gt;A comprehensive tracking sheet requires specific columnar architecture: asset ticker symbol, company name, sector classification, total shares owned, average cost basis per share, and total capital deployed. Adjacent automated formula columns calculate the current market price, total portfolio value, and the absolute/percentage unrealized gains or losses. Applying conditional formatting ensures instantaneous visual identification of outperforming and underperforming assets.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p&gt;Beyond basic pricing, the Excel setup must track portfolio mechanics and risk parameters. Calculating the market capitalization size and corresponding sector allocation weight is critical for maintaining diversification.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>)</p>
+<p class="p1"><span class="Apple-converted-space">  </span>},</p>
+<p class="p1"><span class="Apple-converted-space">  </span>{</p>
+<p class="p1"><span class="Apple-converted-space">    </span>id: 'company-analysis',</p>
+<p class="p1"><span class="Apple-converted-space">    </span>title: 'Company Analysis',</p>
+<p class="p1"><span class="Apple-converted-space">    </span>icon: Search,</p>
+<p class="p1"><span class="Apple-converted-space">    </span>content: (</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div className="space-y-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p&gt;Before capital is allocated, a rigorous comparative analysis of companies operating within identical macroeconomic environments must be conducted. Within the Indian financial services sector, an analysis between HDFC Bank, ICICI Bank, and Axis Bank reveals starkly different fundamental profiles.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p&gt;HDFC Bank, historically the benchmark for consistent compounding in the private banking space, possesses a highly stable customer base across both retail and corporate segments. Conversely, ICICI Bank has undergone a dramatic transformation, emerging as a nimble, high-growth performer characterized by superior return ratios and aggressive digital innovation.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div className="overflow-x-auto my-6 border border-slate-700 rounded-lg"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;table className="w-full text-left text-sm"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;thead className="bg-slate-800 text-slate-300"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;tr&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;th className="p-3 font-semibold"&gt;Banking Entity&lt;/th&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;th className="p-3 font-semibold"&gt;Gross NPA (%)&lt;/th&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;th className="p-3 font-semibold"&gt;Net NPA (%)&lt;/th&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;th className="p-3 font-semibold"&gt;3Y Historic Return (%)&lt;/th&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;th className="p-3 font-semibold"&gt;Target ROE (%)&lt;/th&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;/tr&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/thead&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;tbody className="divide-y divide-slate-700"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;tr className="hover:bg-slate-800/50"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td className="p-3 font-medium text-slate-200"&gt;ICICI Bank&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td className="p-3"&gt;1.53%&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td className="p-3"&gt;0.37%&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td className="p-3 text-green-400"&gt;31.75%&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td className="p-3 text-blue-400"&gt;18.04%&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;/tr&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;tr className="hover:bg-slate-800/50"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td className="p-3 font-medium text-slate-200"&gt;HDFC Bank&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td className="p-3"&gt;1.42%&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td className="p-3"&gt;0.42%&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td className="p-3 text-yellow-400"&gt;Value Reversion Expected&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td className="p-3 text-blue-400"&gt;15.00% - 17.00%&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;/tr&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/tbody&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/table&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p className="text-sm text-slate-400 italic"&gt;*Data derived from fundamental banking sector comparisons outlining current asset quality and historic return parameters.*&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>)</p>
+<p class="p1"><span class="Apple-converted-space">  </span>},</p>
+<p class="p1"><span class="Apple-converted-space">  </span>{</p>
+<p class="p1"><span class="Apple-converted-space">    </span>id: 'dcf-basics',</p>
+<p class="p1"><span class="Apple-converted-space">    </span>title: 'DCF Basics',</p>
+<p class="p1"><span class="Apple-converted-space">    </span>icon: LineChart,</p>
+<p class="p1"><span class="Apple-converted-space">    </span>content: (</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div className="space-y-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p&gt;The quantitative backbone of the valuation process is the Discounted Cash Flow (DCF) model. This financial framework bypasses market sentiment, postulating that an enterprise's sole intrinsic value is a direct function of its ability to generate free cash flow for its shareholders in the future.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p&gt;The architecture of the DCF model follows a sequence of six analytical steps:&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;ol className="list-decimal pl-5 space-y-2 text-slate-300"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;li&gt;&lt;strong&gt;Forecast UFCF:&lt;/strong&gt; Forecast the Unlevered Free Cash Flow over an explicit projection period (typically 5-10 years).&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;li&gt;&lt;strong&gt;Calculate Terminal Value (TV):&lt;/strong&gt; Estimate the lump-sum value of the enterprise beyond the final year of the explicit forecast using perpetual growth or exit multiples.&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;li&gt;&lt;strong&gt;Discount Cash Flows:&lt;/strong&gt; Discount both the forecasted UFCFs and the Terminal Value back to the present day using the Weighted Average Cost of Capital (WACC) to find Enterprise Value.&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;li&gt;&lt;strong&gt;Add Non-Operating Assets:&lt;/strong&gt; Add excess cash to the Enterprise Value.&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;li&gt;&lt;strong&gt;Subtract Non-Equity Claims:&lt;/strong&gt; Subtract total debt, capital leases, and preferred stock to arrive at Equity Value.&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;li&gt;&lt;strong&gt;Calculate Value Per Share:&lt;/strong&gt; Divide the aggregate Equity Value by the fully diluted number of shares outstanding to arrive at the intrinsic value per share.&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/ol&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>)</p>
+<p class="p1"><span class="Apple-converted-space">  </span>},</p>
+<p class="p1"><span class="Apple-converted-space">  </span>{</p>
+<p class="p1"><span class="Apple-converted-space">    </span>id: 'investor-study',</p>
+<p class="p1"><span class="Apple-converted-space">    </span>title: 'Investor Study',</p>
+<p class="p1"><span class="Apple-converted-space">    </span>icon: User,</p>
+<p class="p1"><span class="Apple-converted-space">    </span>content: (</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div className="space-y-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p&gt;The application of fundamental valuation and business analysis splits into various strategic philosophies, best exemplified by studying the highly contrasting yet equally successful methodologies of Warren Buffett and Peter Lynch.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p&gt;&lt;strong&gt;Warren Buffett's&lt;/strong&gt; architectural framework relies heavily on extreme concentration and remaining strictly within his "circle of competence". His quantitative checklist is incredibly rigid, prioritizing businesses with consistent earnings histories, wide profit margins, and formidable durable competitive advantages. Screening criteria typically mandate a Debt-to-Equity ratio below 0.5, a Current Ratio between 1.5 and 2.5, and an ROE consistently exceeding 8%.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p&gt;&lt;strong&gt;Peter Lynch&lt;/strong&gt; operated as an eclectic, true stock-picker who managed a highly diversified portfolio. Lynch championed a fluid strategy that categorized equities into six distinct narratives: Slow Growers, Stalwarts, Fast Growers, Cyclicals, Turnarounds, and Asset Plays. He institutionalized the "Two-Minute Drill"—a rapid analytical synthesis requiring the investor to succinctly articulate why the stock is attractive, the fundamental catalyst, and specific pitfalls.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>)</p>
+<p class="p1"><span class="Apple-converted-space">  </span>},</p>
+<p class="p1"><span class="Apple-converted-space">  </span>{</p>
+<p class="p1"><span class="Apple-converted-space">    </span>id: 'watchlist',</p>
+<p class="p1"><span class="Apple-converted-space">    </span>title: 'Watchlist',</p>
+<p class="p1"><span class="Apple-converted-space">    </span>icon: Eye,</p>
+<p class="p1"><span class="Apple-converted-space">    </span>content: (</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div className="space-y-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p&gt;Constructing a highly curated watchlist is the necessary precursor to capital deployment. Based on current fundamental parameters and structural tailwinds expected through 2026, the following five Indian equities represent elite candidates for a long-term portfolio.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div className="overflow-x-auto my-6 border border-slate-700 rounded-lg"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;table className="w-full text-left text-sm"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;thead className="bg-slate-800 text-slate-300"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;tr&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;th className="p-3 font-semibold"&gt;Watchlist Equity&lt;/th&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;th className="p-3 font-semibold"&gt;Sector&lt;/th&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;th className="p-3 font-semibold"&gt;Key Moat Driver&lt;/th&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;th className="p-3 font-semibold"&gt;Consensus 12M Trend&lt;/th&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;th className="p-3 font-semibold"&gt;Historic ROE&lt;/th&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;/tr&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/thead&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;tbody className="divide-y divide-slate-700"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;tr className="hover:bg-slate-800/50"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td className="p-3 font-medium text-slate-200"&gt;HDFC Bank&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td className="p-3"&gt;Banking&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td className="p-3"&gt;Scale / Switching Cost&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td className="p-3 text-green-400"&gt;Buy / Value Reversion&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td className="p-3 text-blue-400"&gt;15% - 17%&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;/tr&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;tr className="hover:bg-slate-800/50"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td className="p-3 font-medium text-slate-200"&gt;ICICI Bank&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td className="p-3"&gt;Banking&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td className="p-3"&gt;Network / Efficiency&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td className="p-3 text-green-400"&gt;Buy / Growth Momentum&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td className="p-3 text-blue-400"&gt;18.04%&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;/tr&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;tr className="hover:bg-slate-800/50"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td className="p-3 font-medium text-slate-200"&gt;TCS&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td className="p-3"&gt;IT Services&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td className="p-3"&gt;Intangible Assets&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td className="p-3 text-yellow-400"&gt;Hold / Accumulate&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td className="p-3 text-blue-400"&gt;&amp;gt;30.00%&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;/tr&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;tr className="hover:bg-slate-800/50"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td className="p-3 font-medium text-slate-200"&gt;Reliance Ind.&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td className="p-3"&gt;Conglomerate&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td className="p-3"&gt;Cost Advantage&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td className="p-3 text-green-400"&gt;Bull Target ₹2,000+&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td className="p-3 text-blue-400"&gt;11.45%&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;/tr&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;tr className="hover:bg-slate-800/50"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td className="p-3 font-medium text-slate-200"&gt;Bajaj Finance&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td className="p-3"&gt;NBFC&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td className="p-3"&gt;Network Effect&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td className="p-3 text-yellow-400"&gt;Accumulate&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td className="p-3 text-blue-400"&gt;&amp;gt;20.00%&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;/tr&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/tbody&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/table&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>)</p>
+<p class="p1"><span class="Apple-converted-space">  </span>},</p>
+<p class="p1"><span class="Apple-converted-space">  </span>{</p>
+<p class="p1"><span class="Apple-converted-space">    </span>id: 'deep-dive',</p>
+<p class="p1"><span class="Apple-converted-space">    </span>title: 'Deep Dive',</p>
+<p class="p1"><span class="Apple-converted-space">    </span>icon: ZoomIn,</p>
+<p class="p1"><span class="Apple-converted-space">    </span>content: (</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div className="space-y-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p&gt;Executing a deep dive into a single watchlist entity is required to validate the structural thesis beyond surface-level metrics. HDFC Bank, undergoing a historic corporate transition in early 2026, presents a highly complex but asymmetric investment opportunity.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p&gt;The structural narrative of HDFC Bank is currently dominated by the aftershocks of its transformational merger with HDFC Limited (July 2023). While creating an unrivaled financial behemoth, it generated severe short-term operational headwinds, primarily elevating the Loan-to-Deposit Ratio (LDR) and causing Net Interest Margin (NIM) compression.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p&gt;However, early 2026 disclosures reveal systematic neutralization of these vulnerabilities. For the quarter ended March 2026, gross advances rose 12% YoY, while deposit growth outpaced credit expansion at 14.4%. This was supported by a 12.3% increase in low-cost CASA deposits.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p&gt;&lt;strong&gt;Valuation Scenarios:&lt;/strong&gt;&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;ul className="list-disc pl-5 space-y-2 text-slate-300"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;li&gt;&lt;span className="text-red-400 font-semibold"&gt;Bear Case (₹690):&lt;/span&gt; Assumes prolonged NIM stagnation. Only 10.5% downside risk.&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;li&gt;&lt;span className="text-blue-400 font-semibold"&gt;Base Case (₹884.20):&lt;/span&gt; Normalizing 17% earnings growth. Offers a 14.7% margin of safety.&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;li&gt;&lt;span className="text-green-400 font-semibold"&gt;Bull Case (₹1,020):&lt;/span&gt; "Efficiency Surge" with swift NIM reversion to 3.8%. Indicates a +32.3% upside.&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/ul&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>)</p>
+<p class="p1"><span class="Apple-converted-space">  </span>},</p>
+<p class="p1"><span class="Apple-converted-space">  </span>{</p>
+<p class="p1"><span class="Apple-converted-space">    </span>id: 'sector-analysis',</p>
+<p class="p1"><span class="Apple-converted-space">    </span>title: 'Sector Analysis',</p>
+<p class="p1"><span class="Apple-converted-space">    </span>icon: Layers,</p>
+<p class="p1"><span class="Apple-converted-space">    </span>content: (</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div className="space-y-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p&gt;Strategic capital deployment requires identifying macroeconomic sectors possessing multi-year structural tailwinds. In 2026, the highest velocity capital flows are concentrated in sectors acting as the bedrock for India's infrastructural maturation. The Defence sector surged an unprecedented 21.71%, Realty jumped 20.53%, and Metals surged 14.36%.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p&gt;However, the most fundamentally sound long-term allocation resides within the Banking and Financial Services sector. Surging over 12.29% as credit demand accelerates, and with FY27 GDP growth projected at 7.5%, the financial sector's earnings visibility remains pristine.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p&gt;Conversely, the Information Technology (IT) sector presents a highly complex, contrarian opportunity. While facing acute near-term headwinds from GenAI disruption and budget constraints, the sector is aggressively pivoting toward high-end data science architecture. For the patient investor, it offers a rare opportunity to acquire world-class, high-ROE compounders at historically deflated valuation multiples.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>)</p>
+<p class="p1"><span class="Apple-converted-space">  </span>},</p>
+<p class="p1"><span class="Apple-converted-space">  </span>{</p>
+<p class="p1"><span class="Apple-converted-space">    </span>id: 'compare-stocks',</p>
+<p class="p1"><span class="Apple-converted-space">    </span>title: 'Compare Stocks',</p>
+<p class="p1"><span class="Apple-converted-space">    </span>icon: BarChart3,</p>
+<p class="p1"><span class="Apple-converted-space">    </span>content: (</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div className="space-y-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p&gt;Within the beleaguered Information Technology sector, executing a granular comparative analysis between Tier-1 incumbents—TCS, Infosys, and Wipro—is essential to isolate the entity exhibiting the highest operational resilience amidst GenAI disruption.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p&gt;In early 2026, Indian IT companies delivered broadly disappointing quarterly results. However, a distinct divergence emerged. TCS led the Tier-1 cohort, executing a 1.2% QoQ revenue growth (0.8% organic). In stark contrast, revenue contracted sequentially for Infosys and Wipro, signaling severe incremental demand stress.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p&gt;Despite revenue headwinds, all firms improved EBIT margins year-over-year via cost optimization. Analysts note that while all remain vulnerable, TCS and Infosys possess the vast domain expertise necessary to navigate the transition. TCS maintains a consensus projection fluctuating between ₹1,869 and a bullish peak of ₹2,880, making it the superior defensive holding within IT.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>)</p>
+<p class="p1"><span class="Apple-converted-space">  </span>},</p>
+<p class="p1"><span class="Apple-converted-space">  </span>{</p>
+<p class="p1"><span class="Apple-converted-space">    </span>id: 'portfolio-basics',</p>
+<p class="p1"><span class="Apple-converted-space">    </span>title: 'Portfolio Basics',</p>
+<p class="p1"><span class="Apple-converted-space">    </span>icon: Briefcase,</p>
+<p class="p1"><span class="Apple-converted-space">    </span>content: (</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div className="space-y-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p&gt;Synthesizing individual equity selections into a cohesive, risk-adjusted whole requires mastering portfolio architecture. The fundamental debate relies on balancing two primary styles: Growth and Value. Growth equities command premium valuations due to immense investor expectations for future revenue expansion, while Value equities operate as statistical bargains priced below their intrinsic value.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p&gt;To neutralize the risk of misjudging macroeconomic cycles, professional allocators deploy a "Core and Satellite" portfolio structure.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;ul className="list-disc pl-5 space-y-2 text-slate-300"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;li&gt;&lt;strong&gt;The Core (60%-80%):&lt;/strong&gt; The stable bedrock of the portfolio, designed to capture systematic market returns with low volatility by holding broadly diversified index funds (like the S&amp;P 500) and highly predictable, wide-moat stalwarts.&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;li&gt;&lt;strong&gt;The Satellite (20%-40%):&lt;/strong&gt; Deployed tactically into high-conviction, idiosyncratic bets—such as small-cap fast growers, thematic sector funds, or distressed turnarounds.&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/ul&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p&gt;This structure creates a "Growth at a Reasonable Price" (GARP) hybrid that thrives in diverse market conditions.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>)</p>
+<p class="p1"><span class="Apple-converted-space">  </span>},</p>
+<p class="p1"><span class="Apple-converted-space">  </span>{</p>
+<p class="p1"><span class="Apple-converted-space">    </span>id: 'capital-allocation',</p>
+<p class="p1"><span class="Apple-converted-space">    </span>title: 'Capital Allocation',</p>
+<p class="p1"><span class="Apple-converted-space">    </span>icon: PieChart,</p>
+<p class="p1"><span class="Apple-converted-space">    </span>content: (</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div className="space-y-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p&gt;The mechanical distribution of capital across distinct asset classes is the single most deterministic factor of long-term portfolio performance, explaining the vast majority of day-to-day volatility and aggregate return variation. Allocation weights must be tailored strictly to the investor's psychological risk tolerance, liquidity requirements, and investment time horizon.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div className="overflow-x-auto my-6 border border-slate-700 rounded-lg"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;table className="w-full text-left text-sm"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;thead className="bg-slate-800 text-slate-300"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;tr&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;th className="p-3 font-semibold"&gt;Risk Profile&lt;/th&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;th className="p-3 font-semibold"&gt;Equities&lt;/th&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;th className="p-3 font-semibold"&gt;Fixed Income (Bonds)&lt;/th&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;th className="p-3 font-semibold"&gt;Real Estate / Alts&lt;/th&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;th className="p-3 font-semibold"&gt;Cash&lt;/th&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;/tr&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/thead&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;tbody className="divide-y divide-slate-700"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;tr className="hover:bg-slate-800/50"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td className="p-3 font-medium text-slate-200"&gt;Conservative&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td className="p-3"&gt;30%&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td className="p-3"&gt;50%&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td className="p-3"&gt;10%&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td className="p-3"&gt;10%&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;/tr&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;tr className="hover:bg-slate-800/50"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td className="p-3 font-medium text-slate-200"&gt;Balanced&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td className="p-3"&gt;50%&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td className="p-3"&gt;30%&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td className="p-3"&gt;10%&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td className="p-3"&gt;10%&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;/tr&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;tr className="hover:bg-slate-800/50"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td className="p-3 font-medium text-slate-200"&gt;Growth-Oriented&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td className="p-3 font-bold text-green-400"&gt;70%&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td className="p-3 font-bold text-blue-400"&gt;20%&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td className="p-3"&gt;5%&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td className="p-3"&gt;5%&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;/tr&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;tr className="hover:bg-slate-800/50"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td className="p-3 font-medium text-slate-200"&gt;Aggressive Growth&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td className="p-3"&gt;85%&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td className="p-3"&gt;10%&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td className="p-3"&gt;5%&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td className="p-3"&gt;0%&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;/tr&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/tbody&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/table&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p&gt;For a mid-to-long-term investor operating in the constructive 2026 macroeconomic environment, a Growth-Oriented profile is highly justifiable. The fixed income allocation is best positioned in short-to-medium duration corporate or government bonds yielding 6.0% to 6.5%.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>)</p>
+<p class="p1"><span class="Apple-converted-space">  </span>},</p>
+<p class="p1"><span class="Apple-converted-space">  </span>{</p>
+<p class="p1"><span class="Apple-converted-space">    </span>id: 'risk-management',</p>
+<p class="p1"><span class="Apple-converted-space">    </span>title: 'Risk Management',</p>
+<p class="p1"><span class="Apple-converted-space">    </span>icon: Shield,</p>
+<p class="p1"><span class="Apple-converted-space">    </span>content: (</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div className="space-y-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p&gt;Risk management is the defensive mechanism through which the portfolio survives extreme downside events. Unmanaged downside volatility irreversibly destroys geometric returns; a portfolio that suffers a severe 50% drawdown requires a massive 100% gain merely to restore the original principal. Therefore, protecting the downside is statistically more critical than capturing maximum upside.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p&gt;Institutional risk parameters dictate strict weighting limits to prevent catastrophic single-point failures:&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;ul className="list-disc pl-5 space-y-2 text-slate-300"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;li&gt;&lt;strong&gt;Max 5%:&lt;/strong&gt; Single individual security&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;li&gt;&lt;strong&gt;Max 20%:&lt;/strong&gt; Single industry sector&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;li&gt;&lt;strong&gt;Max 35%:&lt;/strong&gt; Single geographical region&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/ul&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p&gt;Furthermore, dynamic rebalancing is a mandatory protocol. As high-performing equities appreciate and exceed their target allocation weight, they increase absolute risk exposure. Periodic rebalancing forces the disciplined sale of overvalued assets and redirects capital into undervalued assets, systematically enforcing a "buy low, sell high" framework.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>)</p>
+<p class="p1"><span class="Apple-converted-space">  </span>},</p>
+<p class="p1"><span class="Apple-converted-space">  </span>{</p>
+<p class="p1"><span class="Apple-converted-space">    </span>id: 'tracking',</p>
+<p class="p1"><span class="Apple-converted-space">    </span>title: 'Tracking',</p>
+<p class="p1"><span class="Apple-converted-space">    </span>icon: RefreshCw,</p>
+<p class="p1"><span class="Apple-converted-space">    </span>content: (</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div className="space-y-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p&gt;A professional risk management and allocation system is completely useless without an automated tracking infrastructure. Constructing a live-updating dashboard via spreadsheet software removes behavioral friction and guarantees that the investor is constantly aware of their precise fundamental exposure.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p&gt;Using Google Sheets, integrating the &lt;code&gt;=GOOGLEFINANCE&lt;/code&gt; array automatically pulls live market data, updating portfolio valuations seamlessly. The tracking spreadsheet must be programmed to instantly calculate the deviation between the current allocation weights and the mathematically mandated target weights, triggering visual alerts via conditional formatting when an asset requires rebalancing.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p&gt;Advanced trackers incorporate localized scripts to record end-of-month snapshot balances, visualize total return against benchmark indices, log dividend distributions, and track realized capital gains for precise tax liability management.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>)</p>
+<p class="p1"><span class="Apple-converted-space">  </span>},</p>
+<p class="p1"><span class="Apple-converted-space">  </span>{</p>
+<p class="p1"><span class="Apple-converted-space">    </span>id: 'market-review',</p>
+<p class="p1"><span class="Apple-converted-space">    </span>title: 'Market Review',</p>
+<p class="p1"><span class="Apple-converted-space">    </span>icon: TrendingUp,</p>
+<p class="p1"><span class="Apple-converted-space">    </span>content: (</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div className="space-y-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p&gt;Contextualizing the portfolio within the current macroeconomic environment is necessary to anticipate broad systemic shifts. As of mid-2026, the Indian equity market remains in a highly constructive, long-term structural bull phase. Despite geopolitical turbulence and aggressive foreign institutional investor (FII) outflows earlier, the market has demonstrated unprecedented resilience supported by domestic institutional purchasing and SIP liquidity.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p&gt;Consensus projections anticipate a vigorous revival, forecasting FY27 GDP growth at a stellar 7.5%, supported by government manufacturing reforms and monetary easing. Forward-looking studies suggest that if the geopolitical environment stabilizes and FII inflows return, the benchmark Nifty index could be propelled beyond the 42,000 level by 2028. Any market corrections should be aggressively utilized as accumulation opportunities.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>)</p>
+<p class="p1"><span class="Apple-converted-space">  </span>},</p>
+<p class="p1"><span class="Apple-converted-space">  </span>{</p>
+<p class="p1"><span class="Apple-converted-space">    </span>id: 're-analysis',</p>
+<p class="p1"><span class="Apple-converted-space">    </span>title: 'Re-analysis',</p>
+<p class="p1"><span class="Apple-converted-space">    </span>icon: Crosshair,</p>
+<p class="p1"><span class="Apple-converted-space">    </span>content: (</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div className="space-y-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p&gt;The maintenance of a portfolio requires continuous intellectual flexibility; an initial investment thesis is a hypothesis that must be constantly re-verified. This necessitates the disciplined process of re-analysis, heavily utilizing Peter Lynch's "Two-Minute Drill".&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p&gt;Periodically (during earnings reports or industry developments), the investor must mentally re-execute the drill for every holding. The investor must succincty articulate:&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;ul className="list-disc pl-5 space-y-2 text-slate-300"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;li&gt;Are the original reasons for purchasing still valid?&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;li&gt;Is the fundamental catalyst still materializing?&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;li&gt;Have structural pitfalls intensified?&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/ul&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p&gt;Re-analysis prevents the dangerous behavioral bias of falling in love with a stock; if the underlying story deteriorates, the asset must be ruthlessly liquidated, regardless of the current unrealized gain or loss.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>)</p>
+<p class="p1"><span class="Apple-converted-space">  </span>},</p>
+<p class="p1"><span class="Apple-converted-space">  </span>{</p>
+<p class="p1"><span class="Apple-converted-space">    </span>id: 'conviction',</p>
+<p class="p1"><span class="Apple-converted-space">    </span>title: 'Conviction',</p>
+<p class="p1"><span class="Apple-converted-space">    </span>icon: Target,</p>
+<p class="p1"><span class="Apple-converted-space">    </span>content: (</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div className="space-y-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p&gt;Once rigorous screening, valuation, and re-analysis have been conducted, the investor must exercise absolute conviction in their best ideas. Alpha is not achieved through indecision or endless, shallow diversification, but by concentrating capital into high-conviction entities possessing enduring moats, high returns on equity, and massive cash-generation capabilities.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p&gt;Operating a concentrated core portfolio eliminates the dangerous phenomenon of "style drift," wherein a manager inadvertently dilutes their strategy by chasing near-term market fads outside their circle of competence. By utilizing a disciplined Garb approach, fundamental conviction serves as the exclusive driver of outperformance in both bull and bear markets.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>)</p>
+<p class="p1"><span class="Apple-converted-space">  </span>},</p>
+<p class="p1"><span class="Apple-converted-space">  </span>{</p>
+<p class="p1"><span class="Apple-converted-space">    </span>id: 'mock-portfolio',</p>
+<p class="p1"><span class="Apple-converted-space">    </span>title: 'Mock Portfolio',</p>
+<p class="p1"><span class="Apple-converted-space">    </span>icon: PieChart,</p>
+<p class="p1"><span class="Apple-converted-space">    </span>content: (</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div className="space-y-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p&gt;Synthesizing the exhaustive qualitative research, quantitative valuation metrics, and rigid risk management parameters yields the ultimate mock portfolio. Designed for a Growth-Oriented risk profile with a 5-to-10-year investment horizon, the portfolio deploys a 75/25 Core-Satellite structure.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div className="overflow-x-auto my-6 border border-slate-700 rounded-lg"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;table className="w-full text-left text-sm"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;thead className="bg-slate-800 text-slate-300"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;tr&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;th className="p-3 font-semibold"&gt;Asset Allocation&lt;/th&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;th className="p-3 font-semibold"&gt;Equity / Sector&lt;/th&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;th className="p-3 font-semibold"&gt;Weight&lt;/th&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;th className="p-3 font-semibold"&gt;Strategic Role&lt;/th&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;/tr&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/thead&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;tbody className="divide-y divide-slate-700"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;tr className="hover:bg-slate-800/50"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td className="p-3 font-medium text-blue-300"&gt;Core Equity&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td className="p-3 font-semibold text-slate-200"&gt;HDFC Bank&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td className="p-3 font-bold text-white"&gt;15.0%&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td className="p-3"&gt;Deep value reversion, foundational stability, wide moat.&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;/tr&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;tr className="hover:bg-slate-800/50"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td className="p-3 font-medium text-blue-300"&gt;Core Equity&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td className="p-3 font-semibold text-slate-200"&gt;Reliance Ind.&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td className="p-3 font-bold text-white"&gt;15.0%&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td className="p-3"&gt;Broad macroeconomic proxy, efficient scale, highly defensive.&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;/tr&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;tr className="hover:bg-slate-800/50"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td className="p-3 font-medium text-blue-300"&gt;Core Equity&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td className="p-3 font-semibold text-slate-200"&gt;TCS&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td className="p-3 font-bold text-white"&gt;10.0%&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td className="p-3"&gt;Extreme ROE generator, consistent dividend compounder.&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;/tr&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;tr className="hover:bg-slate-800/50"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td className="p-3 font-medium text-blue-300"&gt;Core Equity&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td className="p-3 font-semibold text-slate-200"&gt;Broad Market ETF&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td className="p-3 font-bold text-white"&gt;20.0%&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td className="p-3"&gt;Unlevered beta capture, neutralizes idiosyncratic stock risk.&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;/tr&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;tr className="hover:bg-slate-800/50"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td className="p-3 font-medium text-purple-300"&gt;Satellite Equity&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td className="p-3 font-semibold text-slate-200"&gt;ICICI Bank&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td className="p-3 font-bold text-white"&gt;5.0%&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td className="p-3"&gt;High-growth momentum financial, superior asset quality.&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;/tr&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;tr className="hover:bg-slate-800/50"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td className="p-3 font-medium text-purple-300"&gt;Satellite Equity&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td className="p-3 font-semibold text-slate-200"&gt;Bajaj Finance&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td className="p-3 font-bold text-white"&gt;5.0%&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td className="p-3"&gt;Hyper-growth compounder, extreme network effect.&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;/tr&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;tr className="hover:bg-slate-800/50"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td className="p-3 font-medium text-emerald-300"&gt;Fixed Income&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td className="p-3 font-semibold text-slate-200"&gt;Short-Duration Corp Bonds&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td className="p-3 font-bold text-white"&gt;20.0%&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td className="p-3"&gt;Yield floor (6.0%-6.5%), capital preservation, volatility buffer.&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;/tr&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;tr className="hover:bg-slate-800/50"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td className="p-3 font-medium text-teal-300"&gt;Cash Reserves&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td className="p-3 font-semibold text-slate-200"&gt;Money Market / Cash&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td className="p-3 font-bold text-white"&gt;10.0%&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;td className="p-3"&gt;Dry powder for market corrections, absolute downside hedge.&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;/tr&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/tbody&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/table&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p className="text-sm text-slate-400 italic"&gt;*The final portfolio architecture aligns strictly with a 70% Equity, 20% Bond, and 10% Cash distribution, respecting all concentration limits.*&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>)</p>
+<p class="p1"><span class="Apple-converted-space">  </span>},</p>
+<p class="p1"><span class="Apple-converted-space">  </span>{</p>
+<p class="p1"><span class="Apple-converted-space">    </span>id: 'review',</p>
+<p class="p1"><span class="Apple-converted-space">    </span>title: 'Review',</p>
+<p class="p1"><span class="Apple-converted-space">    </span>icon: CheckCircle,</p>
+<p class="p1"><span class="Apple-converted-space">    </span>content: (</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div className="space-y-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p&gt;The final operational step before letting the portfolio compound is executing a systemic review to identify potential analytical or behavioral errors. Investors frequently suffer capital destruction not due to a lack of intelligence, but through the misapplication of valuation fundamentals.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p&gt;A primary error involves relying entirely on the Perpetuity Growth Method in a DCF model without utilizing the Exit Multiple Method as a necessary "sanity check". If the implied terminal growth rate assumption drastically exceeds the long-term GDP growth of the country, the entire valuation is mathematically invalid.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p&gt;Furthermore, an investor must review whether they have truly respected the Margin of Safety. Purchasing a wide-moat, exceptionally high-quality company like TCS at a peak valuation multiple with zero margin of safety frequently results in a "dead money" decade. Finally, the investor must audit the portfolio to ensure emotional biases have not overridden the strict 5% single-stock or 20% sector weighting limits.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>)</p>
+<p class="p1"><span class="Apple-converted-space">  </span>},</p>
+<p class="p1"><span class="Apple-converted-space">  </span>{</p>
+<p class="p1"><span class="Apple-converted-space">    </span>id: 'final-system',</p>
+<p class="p1"><span class="Apple-converted-space">    </span>title: 'Final System',</p>
+<p class="p1"><span class="Apple-converted-space">    </span>icon: FileText,</p>
+<p class="p1"><span class="Apple-converted-space">    </span>content: (</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div className="space-y-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p&gt;The creation of the optimal, profitable business portfolio is not a static event, but a continuous, highly disciplined mechanical system. It begins at the microscopic level by identifying enterprises with superior business models that generate robust, predictable cash flows. The system then mandates that these businesses possess durable economic moats to protect those cash flows from competitive erosion for decades.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p&gt;The qualitative thesis is then subjected to the ruthless quantitative scrutiny of the Discounted Cash Flow model. Capital is only deployed when the erratic nature of the public markets offers the asset at a deep discount, satisfying the requisite margin of safety.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p&gt;The resulting equities are allocated into a Growth-Oriented, Core-Satellite architecture that perfectly balances the preservation of capital with the pursuit of alpha, rigidly restricted by quantitative concentration limits. Overseen by an automated Excel dashboard and maintained through relentless fundamental re-analysis, this end-to-end framework systematically removes emotional speculation, stacking the mathematical probabilities of compound growth entirely in favor of the investor.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>)</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p1">];</p>
+<p class="p2"><br></p>
+<p class="p1">export default function App() {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const [activeTab, setActiveTab] = useState(portfolioData[0].id);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>const activeContent = portfolioData.find(item =&gt; item.id === activeTab);</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>// Group sections logically for the sidebar</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const categories = [</p>
+<p class="p1"><span class="Apple-converted-space">    </span>{ title: "Foundations", items: ['business-model', 'moat', 'investor-study'] },</p>
+<p class="p1"><span class="Apple-converted-space">    </span>{ title: "Valuation", items: ['valuation-intro', 'margin-of-safety', 'dcf-basics'] },</p>
+<p class="p1"><span class="Apple-converted-space">    </span>{ title: "Analysis", items: ['company-analysis', 'sector-analysis', 'compare-stocks', 'deep-dive'] },</p>
+<p class="p1"><span class="Apple-converted-space">    </span>{ title: "Portfolio Construction", items: ['portfolio-basics', 'capital-allocation', 'risk-management', 'mock-portfolio'] },</p>
+<p class="p1"><span class="Apple-converted-space">    </span>{ title: "System Operations", items: ['excel-setup', 'watchlist', 'tracking', 'market-review', 're-analysis', 'conviction', 'review', 'final-system'] },</p>
+<p class="p1"><span class="Apple-converted-space">  </span>];</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>return (</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div className="flex h-screen bg-slate-950 text-slate-200 font-sans overflow-hidden selection:bg-blue-500/30"&gt;</p>
+<p class="p2"><span class="Apple-converted-space">      </span></p>
+<p class="p1"><span class="Apple-converted-space">      </span>{/* Mobile Header &amp; Menu Overlay */}</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div className="lg:hidden absolute top-0 left-0 right-0 z-50 bg-slate-900 border-b border-slate-800 p-4 flex justify-between items-center shadow-md"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;h1 className="font-bold text-lg text-white flex items-center gap-2"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;Briefcase className="w-5 h-5 text-blue-500" /&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>Neil's Portfolio</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/h1&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;button onClick={() =&gt; setIsMobileMenuOpen(!isMobileMenuOpen)} className="p-2 bg-slate-800 rounded-md"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>{isMobileMenuOpen ? &lt;X className="w-5 h-5" /&gt; : &lt;Menu className="w-5 h-5" /&gt;}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>{isMobileMenuOpen &amp;&amp; (</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div className="lg:hidden fixed inset-0 top-[73px] bg-slate-950 z-40 overflow-y-auto pb-20"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;SidebarNav<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>categories={categories}<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>activeTab={activeTab}<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>setActiveTab={(id) =&gt; { setActiveTab(id); setIsMobileMenuOpen(false); }}<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">          </span>/&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>)}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>{/* Desktop Sidebar */}</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div className="hidden lg:flex w-80 flex-col bg-slate-900 border-r border-slate-800 h-full overflow-y-auto custom-scrollbar shadow-xl"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div className="p-6 sticky top-0 bg-slate-900/95 backdrop-blur z-10 border-b border-slate-800/50"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;h1 className="font-extrabold text-2xl text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-teal-400 mb-1"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>Neil's Portfolio</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/h1&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;p className="text-xs text-slate-400 font-medium tracking-wide uppercase"&gt;The Architected Framework&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;SidebarNav categories={categories} activeTab={activeTab} setActiveTab={setActiveTab} /&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>{/* Main Content Area */}</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;main className="flex-1 flex flex-col h-full overflow-y-auto bg-slate-950 pt-20 lg:pt-0 relative"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div className="max-w-4xl w-full mx-auto p-6 lg:p-12 pb-32"&gt;</p>
+<p class="p2"><span class="Apple-converted-space">          </span></p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div className="mb-10"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 text-blue-400 text-sm font-medium mb-4 border border-blue-500/20"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>{activeContent.icon &amp;&amp; &lt;activeContent.icon className="w-4 h-4" /&gt;}</p>
+<p class="p1"><span class="Apple-converted-space">              </span>{categories.find(c =&gt; c.items.includes(activeTab))?.title}</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;h2 className="text-3xl lg:text-5xl font-bold text-white tracking-tight mb-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>{activeContent.title}</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div className="w-20 h-1 bg-gradient-to-r from-blue-500 to-teal-400 rounded-full"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div className="prose prose-invert prose-slate prose-lg max-w-none prose-p:leading-relaxed prose-p:text-slate-300 prose-headings:text-white prose-a:text-blue-400 hover:prose-a:text-blue-300 prose-strong:text-slate-100"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{activeContent.content}</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">          </span>{/* Navigation Footer */}</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div className="mt-16 pt-8 border-t border-slate-800 flex justify-between items-center"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{(() =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">              </span>const flatItems = categories.flatMap(c =&gt; c.items);</p>
+<p class="p1"><span class="Apple-converted-space">              </span>const currentIndex = flatItems.indexOf(activeTab);</p>
+<p class="p1"><span class="Apple-converted-space">              </span>const prevTab = currentIndex &gt; 0 ? flatItems[currentIndex - 1] : null;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>const nextTab = currentIndex &lt; flatItems.length - 1 ? flatItems[currentIndex + 1] : null;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">              </span>return (</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                  </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>{prevTab &amp;&amp; (</p>
+<p class="p1"><span class="Apple-converted-space">                      </span>&lt;button<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">                        </span>onClick={() =&gt; setActiveTab(prevTab)}</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>className="text-slate-400 hover:text-white flex flex-col items-start transition-colors"</p>
+<p class="p1"><span class="Apple-converted-space">                      </span>&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span className="text-xs uppercase tracking-wider font-semibold mb-1"&gt;Previous&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span className="font-medium"&gt;{portfolioData.find(d =&gt; d.id === prevTab).title}&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                      </span>&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>)}</p>
+<p class="p1"><span class="Apple-converted-space">                  </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                  </span>&lt;div className="text-right"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>{nextTab &amp;&amp; (</p>
+<p class="p1"><span class="Apple-converted-space">                      </span>&lt;button<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">                        </span>onClick={() =&gt; setActiveTab(nextTab)}</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>className="text-blue-400 hover:text-blue-300 flex flex-col items-end transition-colors"</p>
+<p class="p1"><span class="Apple-converted-space">                      </span>&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span className="text-xs uppercase tracking-wider font-semibold mb-1"&gt;Next&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span className="font-medium flex items-center gap-1"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                          </span>{portfolioData.find(d =&gt; d.id === nextTab).title}</p>
+<p class="p1"><span class="Apple-converted-space">                          </span>&lt;ChevronRight className="w-4 h-4" /&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                      </span>&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>)}</p>
+<p class="p1"><span class="Apple-converted-space">                  </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>)</p>
+<p class="p1"><span class="Apple-converted-space">            </span>})()}</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/main&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>{/* CSS string for custom scrollbar embedded for complete single-file independence */}</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;style dangerouslySetInnerHTML={{__html: `</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.custom-scrollbar::-webkit-scrollbar {</p>
+<p class="p1"><span class="Apple-converted-space">          </span>width: 6px;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.custom-scrollbar::-webkit-scrollbar-track {</p>
+<p class="p1"><span class="Apple-converted-space">          </span>background: transparent;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.custom-scrollbar::-webkit-scrollbar-thumb {</p>
+<p class="p1"><span class="Apple-converted-space">          </span>background-color: #334155;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>border-radius: 20px;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">      </span>`}} /&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>);</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">// Sub-component for Sidebar Navigation</p>
+<p class="p1">function SidebarNav({ categories, activeTab, setActiveTab }) {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>return (</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div className="p-4 space-y-8"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>{categories.map((category, idx) =&gt; (</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div key={idx} className="space-y-2"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;h3 className="text-xs font-bold text-slate-500 uppercase tracking-widest px-3 mb-3"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{category.title}</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;ul className="space-y-1"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{category.items.map(itemId =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">              </span>const item = portfolioData.find(d =&gt; d.id === itemId);</p>
+<p class="p1"><span class="Apple-converted-space">              </span>const isActive = activeTab === itemId;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>const Icon = item.icon;</p>
+<p class="p2"><span class="Apple-converted-space">              </span></p>
+<p class="p1"><span class="Apple-converted-space">              </span>return (</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;li key={itemId}&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                  </span>&lt;button</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>onClick={() =&gt; setActiveTab(itemId)}</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>className={`w-full text-left px-3 py-2.5 rounded-lg flex items-center gap-3 transition-all duration-200 ${</p>
+<p class="p1"><span class="Apple-converted-space">                      </span>isActive<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">                        </span>? 'bg-blue-500/10 text-blue-400 font-semibold shadow-sm'<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">                        </span>: 'text-slate-400 hover:bg-slate-800/60 hover:text-slate-200'</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>}`}</p>
+<p class="p1"><span class="Apple-converted-space">                  </span>&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;Icon className={`w-4 h-4 ${isActive ? 'text-blue-400' : 'text-slate-500'}`} /&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;span className="text-sm"&gt;{item.title}&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>{isActive &amp;&amp; (</p>
+<p class="p1"><span class="Apple-converted-space">                      </span>&lt;div className="ml-auto w-1.5 h-1.5 rounded-full bg-blue-500 shadow-[0_0_8px_rgba(59,130,246,0.8)]"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>)}</p>
+<p class="p1"><span class="Apple-converted-space">                  </span>&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>})}</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/ul&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>))}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>);</p>
+<p class="p1">}</p>
+</body>
+</html>
